@@ -651,7 +651,7 @@ input.flatpickr-input,
 <label><input data-group="services" type="checkbox" value="Daily Living"/> Daily Living</label>
 <label><input data-group="services" type="checkbox" value="Other"/> Other</label>
 </div>
-<div class="input-icon" id="services-other-wrapper" style="display:none; margin-top:10px;">
+<div class="input-icon" id="services-other-wrapper" style="display: none; margin-top: 10px;">
 <i class="fas fa-comment-dots"></i>
 <input name="services_other" placeholder="Please specify" type="text"/>
 </div>
@@ -671,7 +671,7 @@ input.flatpickr-input,
 <label><input data-group="mobility_type" type="checkbox" value="Stretcher"/> Stretcher</label>
 <label><input data-group="mobility_type" type="checkbox" value="Other"/> Other</label>
 </div>
-<div class="input-icon" id="mobility-other-wrapper" style="display:none; margin-top:10px;">
+<div class="input-icon" id="mobility-other-wrapper" style="display: none; margin-top: 10px;">
 <i class="fas fa-wheelchair"></i>
 <input name="mobility_other" placeholder="Please specify" type="text"/>
 </div>
@@ -903,103 +903,6 @@ input.flatpickr-input,
   });
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  function setupOtherField(dataGroup, otherWrapperId) {
-    const checkboxes = document.querySelectorAll(`input[data-group="${dataGroup}"]`);
-    const wrapper = document.getElementById(otherWrapperId);
-
-    function toggle() {
-      const isOtherChecked = Array.from(checkboxes).some(cb => cb.checked && cb.value === "Other");
-      wrapper.style.display = isOtherChecked ? "block" : "none";
-    }
-
-    checkboxes.forEach(cb => cb.addEventListener("change", toggle));
-    toggle(); // run on load
-  }
-
-  setupOtherField("services", "services-other-wrapper");
-  setupOtherField("mobility_type", "mobility-other-wrapper");
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById('nemt-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = e.target;
-
-    function processCheckboxGroup(dataGroup, otherInputId, hiddenGroupId, hiddenOtherId) {
-      const checkboxes = form.querySelectorAll(`input[data-group="${dataGroup}"]:checked`);
-      const otherText = document.querySelector(`#${otherInputId} input`)?.value.trim();
-
-      let values = Array.from(checkboxes).map(cb => cb.value).filter(v => v !== "Other");
-      document.getElementById(hiddenGroupId).value = values.join(", ");
-
-      if (otherText && Array.from(checkboxes).some(cb => cb.value === "Other")) {
-        document.getElementById(hiddenOtherId).value = otherText;
-      } else {
-        document.getElementById(hiddenOtherId).value = "";
-      }
-    }
-
-    processCheckboxGroup("services", "services-other-wrapper", "merged_services", "merged_services_other");
-    processCheckboxGroup("mobility_type", "mobility-other-wrapper", "merged_mobility", "merged_mobility_other");
-
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: "POST",
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        form.style.display = 'none';
-        document.getElementById('thank_you_message').style.display = 'block'; document.getElementById('form-overlay').classList.remove('show');
-      } else {
-        alert("There was an error submitting the form. Please try again.");
-      }
-    })
-    .catch(error => {
-      console.error("Submission failed", error);
-      document.getElementById('form-overlay').classList.remove('show'); alert("Submission failed. Please try again.");
-    });
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Return Ride Logic using inline style toggle
-  const returnInputs = document.querySelectorAll("input[name='return_ride']");
-  const returnContainer = document.getElementById("return-time-container");
-
-  function updateReturnVisibility() {
-    const selected = document.querySelector("input[name='return_ride']:checked");
-    if (selected && selected.value === "Yes") {
-      returnContainer.style.display = "flex";
-    } else {
-      returnContainer.style.display = "none";
-    }
-  }
-
-  returnInputs.forEach(input => input.addEventListener("change", updateReturnVisibility));
-  updateReturnVisibility();
-
-  // "Other" Logic (reveal text inputs)
-  function setupOtherField(dataGroup, wrapperId) {
-    const checkboxes = document.querySelectorAll(`input[data-group='${dataGroup}']`);
-    const wrapper = document.getElementById(wrapperId);
-
-    function toggleOtherField() {
-      const showOther = Array.from(checkboxes).some(cb => cb.checked && cb.value === "Other");
-      wrapper.style.display = showOther ? "block" : "none";
-    }
-
-    checkboxes.forEach(cb => cb.addEventListener("change", toggleOtherField));
-    toggleOtherField(); // initialize
-  }
-
-  setupOtherField("services", "services-other-wrapper");
-  setupOtherField("mobility_type", "mobility-other-wrapper");
-});
-</script>
-<script>
   document.addEventListener("DOMContentLoaded", function () {
     const pickupTimeContainer = document.getElementById("pickup_time_container");
     const pickupTimeIcon = document.getElementById("pickup_time_icon");
@@ -1042,6 +945,50 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+</script>
+<script>
+window.addEventListener("load", function () {
+  const checkboxes = document.querySelectorAll("input[data-group='services']");
+  const wrapper = document.getElementById("services-other-wrapper");
+  if (!wrapper) return;
+  const input = wrapper.querySelector("input");
+
+  function updateVisibility() {
+    const isOtherChecked = Array.from(checkboxes).some(cb => cb.checked && cb.value === "Other");
+    if (isOtherChecked) {
+      wrapper.style.setProperty("display", "block", "important");
+    } else {
+      wrapper.style.setProperty("display", "none", "important");
+    }
+    if (input) input.required = isOtherChecked;
+  }
+
+  checkboxes.forEach(cb => cb.addEventListener("change", updateVisibility));
+  updateVisibility();
+});
+</script>
+
+<script>
+window.addEventListener("load", function () {
+  function setupOtherToggle(dataGroup, wrapperId) {
+    const checkboxes = document.querySelectorAll("input[data-group='" + dataGroup + "']");
+    const wrapper = document.getElementById(wrapperId);
+    if (!wrapper) return;
+    const input = wrapper.querySelector("input");
+
+    function updateVisibility() {
+      const isOtherChecked = Array.from(checkboxes).some(cb => cb.checked && cb.value === "Other");
+      wrapper.style.setProperty("display", isOtherChecked ? "block" : "none", "important");
+      if (input) input.required = isOtherChecked;
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener("change", updateVisibility));
+    updateVisibility();
+  }
+
+  setupOtherToggle("services", "services-other-wrapper");
+  setupOtherToggle("mobility_type", "mobility-other-wrapper");
+});
 </script>
 </body>
 </html>
