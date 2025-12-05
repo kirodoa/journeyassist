@@ -149,7 +149,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       pointer-events: none;
     }
     .input-icon input,
-    .input-icon select,
+    .input-icon select {
+      width: 100%;
+      padding: 12px 12px 12px 38px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      min-height: 46px; /* ✅ Uniform height for text & select (date + time) */
+    }
     .input-icon textarea {
       width: 100%;
       padding: 12px 12px 12px 38px;
@@ -546,6 +553,25 @@ input.flatpickr-input,
     font-size: 16px !important;
   }
 }
+
+/* Force Flatpickr visible date input to match other field heights, including on iPhone */
+.flatpickr-alt-input {
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 12px 12px 12px 40px !important; /* align text nicely with the icon */
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+/* Extra safety on small screens */
+@media only screen and (max-width: 600px) {
+  .flatpickr-alt-input {
+    height: 46px !important;
+    min-height: 46px !important;
+    font-size: 16px !important; /* helps prevent zoom on focus in iOS */
+  }
+}
+
 </style>
 </head>
 <body><div id="form-overlay" style="display: none;">Submitting...</div>
@@ -717,20 +743,6 @@ input.flatpickr-input,
 <p style="font-size: 1em; margin-top: 20px; color: #555;">
     If you have any urgent questions or changes, please contact our support team directly.
   </p>
-<div style="margin-top: 20px;">
-<a href="https://www.journeyassisttransportation.org/" onmouseout="this.style.backgroundColor='#3A4C68'" onmouseover="this.style.backgroundColor='#2c3e50'" style="
-    background-color: #3A4C68;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  ">
-    Return to Website
-  </a>
-</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
