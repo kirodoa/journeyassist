@@ -12,7 +12,7 @@
 /* ✅ Force text left-alignment in Flatpickr input on all devices */
 input.flatpickr-input {
   text-align: left !important;
-  padding-left: 38px !important;
+  padding-left: 40px !important;
   font-size: 16px !important;
 }
 
@@ -33,7 +33,7 @@ input[type="text"].flatpickr-input,
 /* 🛠 Force left-aligned text in date input (Flatpickr) */
 .flatpickr-input {
   text-align: left !important;
-  padding-left: 40px !important;
+  padding-left: 38px !important;
 }
 
 /* 🔧 iOS fix to avoid centering on zoom/touch */
@@ -602,6 +602,19 @@ select {
     text-align-last: left !important;
     font-size: 16px; /* avoid zoom on focus */
   }
+}
+
+
+/* 🎯 Uniform left spacing for all icon fields (date + time + others) */
+.input-icon input:not(.no-icon),
+.input-icon select {
+  padding-left: 44px !important; /* shared offset so text lines up with icons uniformly */
+}
+
+/* Keep no-icon inputs tight on the left edge */
+.input-icon input.no-icon,
+.input-icon textarea.no-icon {
+  padding-left: 12px !important;
 }
 
 </style>
