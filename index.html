@@ -990,5 +990,57 @@ window.addEventListener("load", function () {
   setupOtherToggle("mobility_type", "mobility-other-wrapper");
 });
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("nemt-form");
+    const overlay = document.getElementById("form-overlay");
+    const thankYou = document.getElementById("thank_you_message");
+
+    if (!form || !overlay || !thankYou) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Use built-in HTML5 validation first
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Show loading overlay
+      overlay.style.display = "flex";
+
+      const formData = new FormData(form);
+      const action = form.getAttribute("action") || "";
+
+      fetch(action, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+      })
+      .then(function () {
+        // On success (or no-cors nominal success), hide form and show thank-you
+        overlay.style.display = "none";
+        form.style.display = "none";
+        thankYou.style.display = "block";
+
+        // Scroll to thank-you message for better UX on mobile
+        try {
+          window.scrollTo({ top: thankYou.offsetTop - 20, behavior: "smooth" });
+        } catch (err) {
+          window.scrollTo(0, thankYou.offsetTop - 20);
+        }
+      })
+      .catch(function () {
+        // Even if there's a network error, hide overlay and still show a message
+        overlay.style.display = "none";
+        form.style.display = "none";
+        thankYou.style.display = "block";
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
