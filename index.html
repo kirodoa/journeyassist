@@ -572,6 +572,20 @@ input.flatpickr-input,
   }
 }
 
+
+/* 🧷 Extra forced left alignment for date text on iOS/Safari */
+.input-icon input,
+.flatpickr-alt-input,
+.flatpickr-input {
+  text-align: left !important;
+}
+
+/* 🧷 Force internal date/time value text to left in WebKit (iOS Safari) */
+input[type="date"]::-webkit-date-and-time-value,
+input[type="time"]::-webkit-date-and-time-value {
+  text-align: left !important;
+}
+
 </style>
 </head>
 <body><div id="form-overlay" style="display: none;">Submitting...</div>
