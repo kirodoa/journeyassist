@@ -617,6 +617,25 @@ select {
   padding-left: 12px !important;
 }
 
+
+/* FINAL iPhone alignment fix: make date + time text line up */
+@media only screen and (max-width: 600px) {
+  /* Pickup pair */
+  .pickup-date-time .input-icon .flatpickr-alt-input,
+  .pickup-date-time #pickup_time,
+  /* Return pair */
+  .return-date-time .input-icon .flatpickr-alt-input,
+  .return-date-time #return_time {
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 12px 12px 12px 48px !important; /* same left offset for both */
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+    text-align-last: left !important; /* for <select> on iOS */
+  }
+}
+
 </style>
 </head>
 <body><div id="form-overlay" style="display: none;">Submitting...</div>
