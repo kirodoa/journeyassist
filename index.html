@@ -1098,7 +1098,33 @@ window.addEventListener("load", function () {
       // Show loading overlay
       overlay.style.display = "flex";
 
-      const formData = new FormData(form);
+      
+      // 🔹 Collect Services & Mobility values into hidden fields before sending to Google Sheets
+      const selectedServices = Array.from(
+        document.querySelectorAll("input[data-group='services']:checked")
+      ).map(cb => cb.value);
+
+      const selectedMobility = Array.from(
+        document.querySelectorAll("input[data-group='mobility_type']:checked")
+      ).map(cb => cb.value);
+
+      const servicesOtherInput = document.querySelector("#services-other-wrapper input[name='services_other']");
+      const mobilityOtherInput = document.querySelector("#mobility-other-wrapper input[name='mobility_other']");
+
+      const servicesOtherText = servicesOtherInput ? servicesOtherInput.value.trim() : "";
+      const mobilityOtherText = mobilityOtherInput ? mobilityOtherInput.value.trim() : "";
+
+      const mergedServices = document.getElementById("merged_services");
+      const mergedMobility = document.getElementById("merged_mobility");
+      const mergedServicesOther = document.getElementById("merged_services_other");
+      const mergedMobilityOther = document.getElementById("merged_mobility_other");
+
+      if (mergedServices) mergedServices.value = selectedServices.join(", ");
+      if (mergedMobility) mergedMobility.value = selectedMobility.join(", ");
+      if (mergedServicesOther) mergedServicesOther.value = servicesOtherText;
+      if (mergedMobilityOther) mergedMobilityOther.value = mobilityOtherText;
+
+const formData = new FormData(form);
       const action = form.getAttribute("action") || "";
 
       fetch(action, {
