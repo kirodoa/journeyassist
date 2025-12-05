@@ -586,6 +586,24 @@ input[type="time"]::-webkit-date-and-time-value {
   text-align: left !important;
 }
 
+
+/* ⏰ Force left alignment for time selects to match date inputs */
+.input-icon select,
+select {
+  text-align: left !important;
+  text-align-last: left !important;
+}
+
+/* Extra safety on small screens (iOS) */
+@media only screen and (max-width: 600px) {
+  .input-icon select,
+  select {
+    text-align: left !important;
+    text-align-last: left !important;
+    font-size: 16px; /* avoid zoom on focus */
+  }
+}
+
 </style>
 </head>
 <body><div id="form-overlay" style="display: none;">Submitting...</div>
