@@ -102,12 +102,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 }
 
+/* Base body + text color */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
   background: #EAEAEE;
+  color: #3A4C68; /* make all text this color */
 }
 
+/* Form card for initial state */
 form {
   max-width: 700px;
   margin: auto;
@@ -119,14 +122,14 @@ form {
 
 h2 {
   text-align: center;
-  color: #2c3e50;
+  color: #3A4C68;
 }
 
 label {
   display: block;
   margin-top: 20px;
   font-weight: 600;
-  color: #34495e;
+  color: #3A4C68;
 }
 
 .required {
@@ -204,7 +207,7 @@ button {
 
 .small-note {
   font-size: 0.85em;
-  color: #888;
+  color: #3A4C68;
   margin-top: 5px;
   display: block;
 }
@@ -262,13 +265,13 @@ button {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.75); /* dark, but thank-you view will be transparent body */
   z-index: 1000;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #3A4C68;
+  color: #ffffff;
   transition: opacity 0.3s ease;
 }
 
@@ -617,6 +620,30 @@ select {
   }
 }
 
+/* ✨ THANK YOU PAGE STYLING */
+/* When form is done, we add this class to body */
+body.thank-you-active {
+  background: transparent !important; /* invisible background */
+  color: #3A4C68 !important;
+}
+
+/* Transparent thank-you container on top of transparent page */
+#thank_you_message {
+  display: none;
+  padding: 40px 20px;
+  margin: 80px auto 40px auto;
+  max-width: 700px;
+  text-align: center;
+  background: transparent !important;
+  color: #3A4C68 !important;
+}
+
+body.thank-you-active #thank_you_message h2,
+body.thank-you-active #thank_you_message p,
+body.thank-you-active #thank_you_message strong {
+  color: #3A4C68 !important;
+}
+
 </style>
 </head>
 <body>
@@ -629,7 +656,7 @@ select {
   <input id="merged_services" name="services" type="hidden"/>
 
   <h2>Request a Journey Assist Transportation</h2>
-  <p style="text-align: center; color: #4a5d7a; margin-top: -10px; font-size: 0.95em;">
+  <p style="text-align: center; margin-top: -10px; font-size: 0.95em;">
     Submit your details to request a safe and reliable non-emergency medical transportation ride.
   </p>
 
@@ -810,6 +837,25 @@ select {
   <!-- Submit -->
   <button type="submit">Submit Request</button>
 </form>
+
+<!-- THANK YOU SECTION – transparent background, all text #3A4C68 -->
+<div id="thank_you_message">
+  <h2>Thank You!</h2>
+  <p>
+    We've received your transportation request and our team is reviewing it.
+  </p>
+  <p>
+    You can expect a confirmation shortly via your preferred contact method.
+  </p>
+  <p>
+    We are committed to providing a <strong>safe</strong>,
+    <strong>reliable</strong>, and
+    <strong>compassionate</strong> ride experience.
+  </p>
+  <p style="font-size: 0.95em; margin-top: 20px;">
+    If you have any urgent questions or changes, please contact our support team directly.
+  </p>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
@@ -1065,13 +1111,14 @@ window.addEventListener("load", function () {
 });
 </script>
 
-<!-- FINAL: submit handler that clears page after submission -->
+<!-- Submit handler: show thank-you message with transparent background -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("nemt-form");
     const overlay = document.getElementById("form-overlay");
+    const thankYou = document.getElementById("thank_you_message");
 
-    if (!form || !overlay) return;
+    if (!form || !overlay || !thankYou) return;
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -1119,18 +1166,24 @@ window.addEventListener("load", function () {
         mode: "no-cors"
       })
       .then(function () {
-        // ✅ After submit: clear everything
+        // On success, hide form and show transparent thank-you
         overlay.style.display = "none";
-        document.body.style.background = "transparent";
-        document.documentElement.style.background = "transparent";
-        document.body.innerHTML = "";
+        form.style.display = "none";
+        document.body.classList.add("thank-you-active");
+        thankYou.style.display = "block";
+
+        try {
+          window.scrollTo({ top: thankYou.offsetTop - 20, behavior: "smooth" });
+        } catch (err) {
+          window.scrollTo(0, thankYou.offsetTop - 20);
+        }
       })
       .catch(function () {
-        // Even on error, still clear the page
+        // On error, still show thank-you view
         overlay.style.display = "none";
-        document.body.style.background = "transparent";
-        document.documentElement.style.background = "transparent";
-        document.body.innerHTML = "";
+        form.style.display = "none";
+        document.body.classList.add("thank-you-active");
+        thankYou.style.display = "block";
       });
     });
   });
