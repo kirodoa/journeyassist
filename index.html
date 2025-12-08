@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -107,117 +106,130 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background: #EAEAEE;
+}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 20px;
-      background: linear-gradient(to right, #f0f4f8, #d9e2ec);
-    }
-    form {
-      max-width: 700px;
-      margin: auto;
-      background: #EAEAEE;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      text-align: center;
-      color: #2c3e50;
-    }
-    label {
-      display: block;
-      margin-top: 20px;
-      font-weight: 600;
-      color: #34495e;
-    }
-    .required {
-      color: #e74c3c;
-      font-weight: bold;
-    }
-    .input-icon {
-      position: relative;
-      margin-top: 10px;
-    }
-    .input-icon i {
-      position: absolute;
-      top: 50%;
-      left: 12px;
-      transform: translateY(-50%);
-      color: #555;
-      font-size: 1rem;
-      pointer-events: none;
-    }
-    .input-icon input,
-    .input-icon select {
-      width: 100%;
-      padding: 12px 12px 12px 38px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-      min-height: 46px; /* ✅ Uniform height for text & select (date + time) */
-    }
-    .input-icon textarea {
-      width: 100%;
-      padding: 12px 12px 12px 38px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
-    .input-icon input.no-icon,
-    .input-icon textarea.no-icon {
-      padding-left: 12px;
-    }
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: auto;
-      margin-right: 10px;
-    }
-    .checkbox-group label,
-    .radio-group label {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-      font-weight: normal;
-    }
-    .flatpickr-input {
-      cursor: pointer !important;
-    }
-    button {
-      margin-top: 30px;
-      width: 100%;
-      padding: 12px;
-      background-color: #2c3e50;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .small-note {
-      font-size: 0.85em;
-      color: #888;
-      margin-top: 5px;
-      display: block;
-    }
-    @media (max-width: 600px) {
-      .flex-responsive {
-        flex-direction: column !important;
-      }
-    }
-  
-    #pickup_loader, #return_loader {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 12px;
-      color: #666;
-      min-width: 130px;
-      height: 20px;
-      display: none;
-    }
+form {
+  max-width: 700px;
+  margin: auto;
+  background: #ffffff !important;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
 
+h2 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.required {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.input-icon {
+  position: relative;
+  margin-top: 10px;
+}
+
+.input-icon i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.input-icon input,
+.input-icon select {
+  width: 100%;
+  padding: 12px 12px 12px 38px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  min-height: 46px; /* ✅ Uniform height for text & select (date + time) */
+}
+
+.input-icon textarea {
+  width: 100%;
+  padding: 12px 12px 12px 38px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.input-icon input.no-icon,
+.input-icon textarea.no-icon {
+  padding-left: 12px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.checkbox-group label,
+.radio-group label {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+.flatpickr-input {
+  cursor: pointer !important;
+}
+
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 12px;
+  background-color: #2c3e50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.small-note {
+  font-size: 0.85em;
+  color: #888;
+  margin-top: 5px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .flex-responsive {
+    flex-direction: column !important;
+  }
+}
+
+#pickup_loader, #return_loader {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #666;
+  min-width: 130px;
+  height: 20px;
+  display: none;
+}
 
 #pickup_time_container i,
 #return_time_container i {
@@ -230,66 +242,42 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   pointer-events: none;
   display: block !important;
 }
+
 #pickup_time_container select,
 #return_time_container select {
   padding-left: 38px !important;
 }
 
-    body {
-      background: #EAEAEE;
-    }
+/* Slide-down animation for conditional sections */
+.slide-toggle {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
 
-    /* Slide-down animation for conditional sections */
-    .slide-toggle {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.5s ease;
-      opacity: 0;
-    }
-    .slide-toggle.open {
-      max-height: 1000px;
-      opacity: 1;
-    }
+.slide-toggle.open {
+  max-height: 1000px;
+  opacity: 1;
+}
 
-    /* Submit button loading overlay */
-    #form-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #3A4C68;
-    }
+/* Submit button loading overlay – now dark & transparent */
+#form-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  transition: opacity 0.3s ease;
+}
 
-    #form-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #3A4C68;
-      transition: opacity 0.3s ease;
-    }
-
-    #form-overlay.show {
-      display: flex !important;
-    }
-
-    form {
-      background-color: #EAEAEE !important;
-    }
-
-form { background-color: #ffffff !important; }
-form {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+#form-overlay.show {
+  display: flex !important;
 }
 
 @media (max-width: 600px) {
@@ -315,7 +303,6 @@ form {
   }
 }
 
-
 #pickup_time_container select,
 #return_time_container select {
   padding-left: 44px !important;
@@ -340,7 +327,6 @@ form {
     left: 12px;
   }
 }
-
 
 /* iPhone & narrow mobile refinements */
 @media only screen and (max-width: 480px) {
@@ -373,7 +359,6 @@ form {
     padding: 14px;
   }
 }
-
 
 @media only screen and (max-width: 480px) {
   form {
@@ -410,7 +395,6 @@ form {
     line-height: 1.4;
   }
 }
-
 
 @media (max-width: 600px) {
   .pickup-date-time,
@@ -462,7 +446,6 @@ input.flatpickr-input::placeholder {
   opacity: 1 !important; /* Ensures it's visible */
 }
 
-
 /* 🧭 Force consistent alignment for date inputs across all devices */
 input.flatpickr-input,
 .flatpickr-input[readonly] {
@@ -481,7 +464,6 @@ input.flatpickr-input,
   }
 }
 
-
 /* ✅ Ensure Flatpickr text stays left-aligned after selection */
 .flatpickr-input,
 .flatpickr-input[readonly],
@@ -496,7 +478,6 @@ input.flatpickr-input,
   color: inherit !important;
 }
 
-
 /* 🛠 Prevent input shrinking and layout collapse on iOS */
 .flatpickr-input {
   min-width: 100% !important;
@@ -510,7 +491,6 @@ input.flatpickr-input,
   width: 100% !important;
   box-sizing: border-box !important;
 }
-
 
 /* ✨ Style the altInput used by Flatpickr */
 .flatpickr-alt-input {
@@ -532,7 +512,6 @@ input.flatpickr-input,
   color: #aaa;
 }
 
-
 /* ✅ Simulate placeholder for .flatpickr-alt-input when empty */
 .flatpickr-alt-input[placeholder]:not([value])::before {
   content: attr(placeholder);
@@ -543,7 +522,6 @@ input.flatpickr-input,
   transform: translateY(-50%);
   pointer-events: none;
 }
-
 
 /* 🛠 Fix for city/state/zip input padding on mobile */
 @media only screen and (max-width: 600px) {
@@ -572,7 +550,6 @@ input.flatpickr-input,
   }
 }
 
-
 /* 🧷 Extra forced left alignment for date text on iOS/Safari */
 .input-icon input,
 .flatpickr-alt-input,
@@ -585,7 +562,6 @@ input[type="date"]::-webkit-date-and-time-value,
 input[type="time"]::-webkit-date-and-time-value {
   text-align: left !important;
 }
-
 
 /* ⏰ Force left alignment for time selects to match date inputs */
 .input-icon select,
@@ -604,7 +580,6 @@ select {
   }
 }
 
-
 /* 🎯 Uniform left spacing for all icon fields (date + time + others) */
 .input-icon input:not(.no-icon),
 .input-icon select {
@@ -617,8 +592,6 @@ select {
   padding-left: 12px !important;
 }
 
-
-
 /* 🖥️ Desktop/tablet uniform heights & font for date + time rows */
 .pickup-date-time .input-icon input,
 .pickup-date-time .input-icon select,
@@ -629,6 +602,7 @@ select {
   font-size: 16px !important;
   line-height: 1.4 !important;
 }
+
 /* FINAL iPhone alignment fix: make date + time text line up */
 @media only screen and (max-width: 600px) {
   /* Pickup pair */
@@ -647,187 +621,246 @@ select {
   }
 }
 
+/* ✨ THANK YOU PAGE STYLING */
+/* When form is done, we add this class to body */
+body.thank-you-active {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Transparent thank-you container on top of black page */
+#thank_you_message {
+  display: none;
+  padding: 40px 20px;
+  margin: 80px auto 40px auto;
+  max-width: 700px;
+  text-align: center;
+  background: transparent !important;
+}
+
+body.thank-you-active #thank_you_message {
+  color: #ffffff !important;
+}
+
+body.thank-you-active #thank_you_message h2,
+body.thank-you-active #thank_you_message p,
+body.thank-you-active #thank_you_message strong {
+  color: #ffffff !important;
+}
+
 </style>
 </head>
-<body><div id="form-overlay" style="display: none;">Submitting...</div>
-<form action="https://script.google.com/macros/s/AKfycbxEAJrfQ60yYKh_Lx8Gh07RIoWApydPE5F0DcywQUuGYHA4UsDwHW0VjfnsO6cHoPpx/exec" id="nemt-form" method="POST"><input id="merged_mobility_other" name="mobility_other" type="hidden"/><input id="merged_services_other" name="services_other" type="hidden"/><input id="merged_mobility" name="mobility_type" type="hidden"/><input id="merged_services" name="services" type="hidden"/>
-<h2>Request a Journey Assist Transportation</h2><p style="text-align: center; color: #4a5d7a; margin-top: -10px; font-size: 0.95em;">Submit your details to request a safe and reliable non-emergency medical transportation ride.</p>
-<!-- Full Name -->
-<label>Full Name <span class="required">*</span></label>
-<div style="display: flex; gap: 10px;">
-<div class="input-icon" style="flex: 1;">
-<i class="fas fa-user"></i>
-<input name="first_name" placeholder="First Name" required="" type="text"/>
-</div>
-<div class="input-icon" style="flex: 1;">
-<i class="fas fa-user"></i>
-<input name="last_name" placeholder="Last Name" required="" type="text"/>
-</div>
-</div>
-<!-- Phone -->
-<label>Phone Number <span class="required">*</span></label>
-<div class="input-icon">
-<i class="fas fa-phone"></i>
-<input name="phone" pattern="\(\d{3}\) \d{3}-\d{4}" placeholder="(000) 000-0000" required="" title="Please enter a valid phone number in the format (123) 456-7890" type="tel"/>
-</div>
-<small class="small-note">Please enter a valid phone number</small>
-<!-- Email -->
-<label>Email Address</label>
-<div class="input-icon">
-<i class="fas fa-envelope"></i>
-<input name="email" placeholder="example@example.com" type="email"/>
-</div>
-<!-- Pickup Address -->
-<label>Pick-Up Address <span class="required">*</span></label>
-<div class="input-icon">
-<i class="fas fa-location-dot"></i>
-<input name="pickup_address" placeholder="Street Address" required="" type="text"/>
-</div>
-<div style="display: flex; gap: 10px; margin-top: 10px;">
-<div class="input-icon" style="flex: 1;">
-<input class="no-icon" name="pickup_city" placeholder="City" type="text"/>
-</div>
-<div class="input-icon" style="flex: 1;">
-<input class="no-icon" name="pickup_state" placeholder="State / Province" type="text"/>
-</div>
-<div class="input-icon" style="flex: 1;">
-<input class="no-icon" name="pickup_zip" placeholder="ZIP / Postal code" type="text"/>
-</div>
-</div>
-<!-- Dropoff Address -->
-<label>Drop-Off Address <span class="required">*</span></label>
-<div class="input-icon">
-<i class="fas fa-location-dot"></i>
-<input name="dropoff_address" placeholder="Street Address" required="" type="text"/>
-</div>
-<div style="display: flex; gap: 10px; margin-top: 10px;">
-<div class="input-icon" style="flex: 1;">
-<input class="no-icon" name="dropoff_city" placeholder="City" type="text"/>
-</div>
-<div class="input-icon" style="flex: 1;">
-<input class="no-icon" name="dropoff_state" placeholder="State / Province" type="text"/>
-</div>
-<div class="input-icon" style="flex: 1;">
-<input class="no-icon" name="dropoff_zip" placeholder="ZIP / Postal code" type="text"/>
-</div>
-</div>
-<!-- Pickup Date & Time -->
-<label>Pick-Up Date and Time <span class="required">*</span></label>
-<div class="pickup-date-time" style="display: flex; gap: 10px;">
-<div class="input-icon" style="flex: 1;">
-<i class="fas fa-calendar-alt"></i>
-<input id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY" required="" type="text"/>
-</div>
-<div class="input-icon" style="flex: 1;">
-<div id="pickup_time_container" style="display: none; position: relative;"><i class="fas fa-clock" id="pickup_time_icon" style=""></i><select id="pickup_time" name="pickup_time" required=""></select></div>
-</div>
-</div>
-<!-- Return Ride -->
-<label>Do you need a return ride? <span class="required">*</span></label>
-<div class="radio-group">
-<label><input name="return_ride" required="" type="radio" value="Yes"/> Yes</label>
-<label><input name="return_ride" type="radio" value="No"/> No</label>
-</div>
-<!-- Return Date & Time -->
-<div id="return-time-container" style="display:none; flex-direction: column; gap: 10px; margin-top: 20px;">
-<label>Return Pick-Up Date and Time <span class="required">*</span></label>
-<div class="return-date-time" style="display: flex; gap: 10px;">
-<div class="input-icon" style="flex: 1;">
-<i class="fas fa-calendar-alt"></i>
-<input id="return_date" name="return_date" placeholder="MM/DD/YYYY" type="text"/>
-</div>
-<div class="input-icon" style="flex: 1;">
-<div id="return_time_container" style="display: none; position: relative;"><i class="fas fa-clock" id="return_time_icon" style=""></i><select id="return_time" name="return_time"></select></div>
-</div>
-</div>
-</div>
-<!-- Services -->
-<label>Services <span class="required">*</span></label>
-<div class="checkbox-group">
-<label><input data-group="services" type="checkbox" value="NEMT"/> Non-Emergency Medical Transportation</label>
-<label><input data-group="services" type="checkbox" value="Wheelchair"/> Wheelchair-Accessible</label>
-<label><input data-group="services" type="checkbox" value="Door-to-Door"/> Door-to-Door Assistance</label>
-<label><input data-group="services" type="checkbox" value="Airport"/> Airport/Travel Transfers</label>
-<label><input data-group="services" type="checkbox" value="Gurney"/> Non-Emergency Gurney</label>
-<label><input data-group="services" type="checkbox" value="Daily Living"/> Daily Living</label>
-<label><input data-group="services" type="checkbox" value="Other"/> Other</label>
-</div>
-<div class="input-icon" id="services-other-wrapper" style="display: none; margin-top: 10px;">
-<i class="fas fa-comment-dots"></i>
-<input name="services_other" placeholder="Please specify" type="text"/>
-</div>
-<!-- Facility -->
-<label>Facility / Doctor Name <span class="small-note">(optional)</span></label>
-<div class="input-icon">
-<i class="fas fa-hospital"></i>
-<input name="facility" placeholder="Facility / Doctor Name" type="text"/>
-</div>
-<!-- Mobility -->
-<label>Mobility Type <span class="required">*</span></label>
-<div class="checkbox-group">
-<label><input data-group="mobility_type" type="checkbox" value="Ambulatory"/> Ambulatory</label>
-<label><input data-group="mobility_type" type="checkbox" value="Wheelchair"/> Wheelchair</label>
-<label><input data-group="mobility_type" type="checkbox" value="Electric Wheelchair"/> Electric Wheelchair</label>
-<label><input data-group="mobility_type" type="checkbox" value="Walker"/> Walker</label>
-<label><input data-group="mobility_type" type="checkbox" value="Stretcher"/> Stretcher</label>
-<label><input data-group="mobility_type" type="checkbox" value="Other"/> Other</label>
-</div>
-<div class="input-icon" id="mobility-other-wrapper" style="display: none; margin-top: 10px;">
-<i class="fas fa-wheelchair"></i>
-<input name="mobility_other" placeholder="Please specify" type="text"/>
-</div>
-<!-- Door Assistance -->
-<label>Door-to-Door Assistance Needed? <span class="required">*</span></label>
-<div class="radio-group">
-<label><input name="door_to_door" required="" type="radio" value="Yes"/> Yes</label>
-<label><input name="door_to_door" type="radio" value="No"/> No</label>
-</div>
-<!-- Caregiver -->
-<label>Will a caregiver ride along?</label>
-<div class="radio-group">
-<label><input name="caregiver" type="radio" value="Yes"/> Yes</label>
-<label><input name="caregiver" type="radio" value="No"/> No</label>
-</div>
-<!-- Contact Method -->
-<label>Preferred Contact Method <span class="required">*</span></label>
-<div class="radio-group">
-<label><input name="contact_method" required="" type="radio" value="Phone"/> Phone</label>
-<label><input name="contact_method" type="radio" value="Text"/> Text</label>
-<label><input name="contact_method" type="radio" value="Email"/> Email</label>
-</div>
-<!-- Notes -->
-<label>Additional Notes <span class="small-note">(optional)</span></label>
-<div class="input-icon">
-<textarea class="no-icon" name="notes" placeholder="Enter any additional information..." rows="4"></textarea>
-</div>
-<!-- Submit -->
-<button type="submit">Submit Request</button>
-</form>
-<div id="thank_you_message" style="
-  display: none;
-  padding: 25px;
-  margin-top: 25px;
-  font-size: 1.1em;
-  background: #EAEAEE;
-  text-align: center;
-">
+<body>
+<div id="form-overlay" style="display: none;">Submitting...</div>
 
-<h2 style="color: #3A4C68; margin-bottom: 12px;">Thank You!</h2>
-<p style="color: #4a5d7a; font-size: 1.05em; margin-bottom: 10px;">
+<form action="https://script.google.com/macros/s/AKfycbxEAJrfQ60yYKh_Lx8Gh07RIoWApydPE5F0DcywQUuGYHA4UsDwHW0VjfnsO6cHoPpx/exec" id="nemt-form" method="POST">
+  <input id="merged_mobility_other" name="mobility_other" type="hidden"/>
+  <input id="merged_services_other" name="services_other" type="hidden"/>
+  <input id="merged_mobility" name="mobility_type" type="hidden"/>
+  <input id="merged_services" name="services" type="hidden"/>
+
+  <h2>Request a Journey Assist Transportation</h2>
+  <p style="text-align: center; color: #4a5d7a; margin-top: -10px; font-size: 0.95em;">
+    Submit your details to request a safe and reliable non-emergency medical transportation ride.
+  </p>
+
+  <!-- Full Name -->
+  <label>Full Name <span class="required">*</span></label>
+  <div style="display: flex; gap: 10px;">
+    <div class="input-icon" style="flex: 1;">
+      <i class="fas fa-user"></i>
+      <input name="first_name" placeholder="First Name" required type="text"/>
+    </div>
+    <div class="input-icon" style="flex: 1;">
+      <i class="fas fa-user"></i>
+      <input name="last_name" placeholder="Last Name" required type="text"/>
+    </div>
+  </div>
+
+  <!-- Phone -->
+  <label>Phone Number <span class="required">*</span></label>
+  <div class="input-icon">
+    <i class="fas fa-phone"></i>
+    <input name="phone"
+           pattern="\(\d{3}\) \d{3}-\d{4}"
+           placeholder="(000) 000-0000"
+           required
+           title="Please enter a valid phone number in the format (123) 456-7890"
+           type="tel"/>
+  </div>
+  <small class="small-note">Please enter a valid phone number</small>
+
+  <!-- Email -->
+  <label>Email Address</label>
+  <div class="input-icon">
+    <i class="fas fa-envelope"></i>
+    <input name="email" placeholder="example@example.com" type="email"/>
+  </div>
+
+  <!-- Pickup Address -->
+  <label>Pick-Up Address <span class="required">*</span></label>
+  <div class="input-icon">
+    <i class="fas fa-location-dot"></i>
+    <input name="pickup_address" placeholder="Street Address" required type="text"/>
+  </div>
+  <div style="display: flex; gap: 10px; margin-top: 10px;">
+    <div class="input-icon" style="flex: 1;">
+      <input class="no-icon" name="pickup_city" placeholder="City" type="text"/>
+    </div>
+    <div class="input-icon" style="flex: 1;">
+      <input class="no-icon" name="pickup_state" placeholder="State / Province" type="text"/>
+    </div>
+    <div class="input-icon" style="flex: 1;">
+      <input class="no-icon" name="pickup_zip" placeholder="ZIP / Postal code" type="text"/>
+    </div>
+  </div>
+
+  <!-- Dropoff Address -->
+  <label>Drop-Off Address <span class="required">*</span></label>
+  <div class="input-icon">
+    <i class="fas fa-location-dot"></i>
+    <input name="dropoff_address" placeholder="Street Address" required type="text"/>
+  </div>
+  <div style="display: flex; gap: 10px; margin-top: 10px;">
+    <div class="input-icon" style="flex: 1;">
+      <input class="no-icon" name="dropoff_city" placeholder="City" type="text"/>
+    </div>
+    <div class="input-icon" style="flex: 1;">
+      <input class="no-icon" name="dropoff_state" placeholder="State / Province" type="text"/>
+    </div>
+    <div class="input-icon" style="flex: 1;">
+      <input class="no-icon" name="dropoff_zip" placeholder="ZIP / Postal code" type="text"/>
+    </div>
+  </div>
+
+  <!-- Pickup Date & Time -->
+  <label>Pick-Up Date and Time <span class="required">*</span></label>
+  <div class="pickup-date-time" style="display: flex; gap: 10px;">
+    <div class="input-icon" style="flex: 1;">
+      <i class="fas fa-calendar-alt"></i>
+      <input id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY" required type="text"/>
+    </div>
+    <div class="input-icon" style="flex: 1;">
+      <div id="pickup_time_container" style="display: none; position: relative;">
+        <i class="fas fa-clock" id="pickup_time_icon"></i>
+        <select id="pickup_time" name="pickup_time" required></select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Return Ride -->
+  <label>Do you need a return ride? <span class="required">*</span></label>
+  <div class="radio-group">
+    <label><input name="return_ride" required type="radio" value="Yes"/> Yes</label>
+    <label><input name="return_ride" type="radio" value="No"/> No</label>
+  </div>
+
+  <!-- Return Date & Time -->
+  <div id="return-time-container" style="display:none; flex-direction: column; gap: 10px; margin-top: 20px;">
+    <label>Return Pick-Up Date and Time <span class="required">*</span></label>
+    <div class="return-date-time" style="display: flex; gap: 10px;">
+      <div class="input-icon" style="flex: 1;">
+        <i class="fas fa-calendar-alt"></i>
+        <input id="return_date" name="return_date" placeholder="MM/DD/YYYY" type="text"/>
+      </div>
+      <div class="input-icon" style="flex: 1;">
+        <div id="return_time_container" style="display: none; position: relative;">
+          <i class="fas fa-clock" id="return_time_icon"></i>
+          <select id="return_time" name="return_time"></select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <label>Services <span class="required">*</span></label>
+  <div class="checkbox-group">
+    <label><input data-group="services" type="checkbox" value="NEMT"/> Non-Emergency Medical Transportation</label>
+    <label><input data-group="services" type="checkbox" value="Wheelchair"/> Wheelchair-Accessible</label>
+    <label><input data-group="services" type="checkbox" value="Door-to-Door"/> Door-to-Door Assistance</label>
+    <label><input data-group="services" type="checkbox" value="Airport"/> Airport/Travel Transfers</label>
+    <label><input data-group="services" type="checkbox" value="Gurney"/> Non-Emergency Gurney</label>
+    <label><input data-group="services" type="checkbox" value="Daily Living"/> Daily Living</label>
+    <label><input data-group="services" type="checkbox" value="Other"/> Other</label>
+  </div>
+  <div class="input-icon" id="services-other-wrapper" style="display: none; margin-top: 10px;">
+    <i class="fas fa-comment-dots"></i>
+    <input name="services_other" placeholder="Please specify" type="text"/>
+  </div>
+
+  <!-- Facility -->
+  <label>Facility / Doctor Name <span class="small-note">(optional)</span></label>
+  <div class="input-icon">
+    <i class="fas fa-hospital"></i>
+    <input name="facility" placeholder="Facility / Doctor Name" type="text"/>
+  </div>
+
+  <!-- Mobility -->
+  <label>Mobility Type <span class="required">*</span></label>
+  <div class="checkbox-group">
+    <label><input data-group="mobility_type" type="checkbox" value="Ambulatory"/> Ambulatory</label>
+    <label><input data-group="mobility_type" type="checkbox" value="Wheelchair"/> Wheelchair</label>
+    <label><input data-group="mobility_type" type="checkbox" value="Electric Wheelchair"/> Electric Wheelchair</label>
+    <label><input data-group="mobility_type" type="checkbox" value="Walker"/> Walker</label>
+    <label><input data-group="mobility_type" type="checkbox" value="Stretcher"/> Stretcher</label>
+    <label><input data-group="mobility_type" type="checkbox" value="Other"/> Other</label>
+  </div>
+  <div class="input-icon" id="mobility-other-wrapper" style="display: none; margin-top: 10px;">
+    <i class="fas fa-wheelchair"></i>
+    <input name="mobility_other" placeholder="Please specify" type="text"/>
+  </div>
+
+  <!-- Door Assistance -->
+  <label>Door-to-Door Assistance Needed? <span class="required">*</span></label>
+  <div class="radio-group">
+    <label><input name="door_to_door" required type="radio" value="Yes"/> Yes</label>
+    <label><input name="door_to_door" type="radio" value="No"/> No</label>
+  </div>
+
+  <!-- Caregiver -->
+  <label>Will a caregiver ride along?</label>
+  <div class="radio-group">
+    <label><input name="caregiver" type="radio" value="Yes"/> Yes</label>
+    <label><input name="caregiver" type="radio" value="No"/> No</label>
+  </div>
+
+  <!-- Contact Method -->
+  <label>Preferred Contact Method <span class="required">*</span></label>
+  <div class="radio-group">
+    <label><input name="contact_method" required type="radio" value="Phone"/> Phone</label>
+    <label><input name="contact_method" type="radio" value="Text"/> Text</label>
+    <label><input name="contact_method" type="radio" value="Email"/> Email</label>
+  </div>
+
+  <!-- Notes -->
+  <label>Additional Notes <span class="small-note">(optional)</span></label>
+  <div class="input-icon">
+    <textarea class="no-icon" name="notes" placeholder="Enter any additional information..." rows="4"></textarea>
+  </div>
+
+  <!-- Submit -->
+  <button type="submit">Submit Request</button>
+</form>
+
+<!-- THANK YOU SECTION – now transparent on a black page -->
+<div id="thank_you_message">
+  <h2>Thank You!</h2>
+  <p>
     We've received your transportation request and our team is reviewing it.
   </p>
-<p style="color: #4a5d7a; font-size: 1.05em; margin-bottom: 10px;">
+  <p>
     You can expect a confirmation shortly via your preferred contact method.
   </p>
-<p style="color: #4a5d7a; font-size: 1.05em; margin-bottom: 10px;">
-    We are committed to providing a <strong style="color: black;">safe</strong>,
-    <strong style="color: black;">reliable</strong>, and
-    <strong style="color: black;">compassionate</strong> ride experience.
+  <p>
+    We are committed to providing a <strong>safe</strong>,
+    <strong>reliable</strong>, and
+    <strong>compassionate</strong> ride experience.
   </p>
-<p style="font-size: 1em; margin-top: 20px; color: #555;">
+  <p style="font-size: 0.95em; margin-top: 20px;">
     If you have any urgent questions or changes, please contact our support team directly.
   </p>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
   function fillTimes(selectId) {
@@ -927,10 +960,9 @@ select {
   window.addEventListener("DOMContentLoaded", function () {
     fillTimes("pickup_time");
     fillTimes("return_time");
-
-    
   });
 </script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const returnRideInputs = document.querySelectorAll("input[name='return_ride']");
@@ -958,6 +990,7 @@ select {
     updateReturnSection();
   });
 </script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const phoneInput = document.querySelector("input[name='phone']");
@@ -980,6 +1013,7 @@ select {
     });
   });
 </script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const pickupTimeContainer = document.getElementById("pickup_time_container");
@@ -988,16 +1022,9 @@ select {
     const returnTimeIcon = document.getElementById("return_time_icon");
 
     const returnTimeContainer = document.getElementById("return_time_container");
-
-    
-
-
-
-
-
-    
   });
 </script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const pickupTimeContainer = document.getElementById("pickup_time_container");
@@ -1042,6 +1069,7 @@ select {
     });
   });
 </script>
+
 <script>
 window.addEventListener("load", function () {
   const checkboxes = document.querySelectorAll("input[data-group='services']");
@@ -1107,7 +1135,6 @@ window.addEventListener("load", function () {
       // Show loading overlay
       overlay.style.display = "flex";
 
-      
       // 🔹 Collect Services & Mobility values into hidden fields before sending to Google Sheets
       const selectedServices = Array.from(
         document.querySelectorAll("input[data-group='services']:checked")
@@ -1133,7 +1160,7 @@ window.addEventListener("load", function () {
       if (mergedServicesOther) mergedServicesOther.value = servicesOtherText;
       if (mergedMobilityOther) mergedMobilityOther.value = mobilityOtherText;
 
-const formData = new FormData(form);
+      const formData = new FormData(form);
       const action = form.getAttribute("action") || "";
 
       fetch(action, {
@@ -1146,6 +1173,7 @@ const formData = new FormData(form);
         overlay.style.display = "none";
         form.style.display = "none";
         thankYou.style.display = "block";
+        document.body.classList.add("thank-you-active");
 
         // Scroll to thank-you message for better UX on mobile
         try {
@@ -1159,6 +1187,7 @@ const formData = new FormData(form);
         overlay.style.display = "none";
         form.style.display = "none";
         thankYou.style.display = "block";
+        document.body.classList.add("thank-you-active");
       });
     });
   });
@@ -1166,3 +1195,4 @@ const formData = new FormData(form);
 
 </body>
 </html>
+
